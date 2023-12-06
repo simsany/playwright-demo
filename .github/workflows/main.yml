@@ -7,10 +7,12 @@ on:
     branches: ['**']
 
 jobs:
-  build:
+  playwright:
+    name: 'Playwright Tests'
     runs-on: ubuntu-latest
+    container:
+      image: mcr.microsoft.com/playwright:v1.40.0-jammy
     env:
-    
       BASE_URL: ${{ secrets.BASE_URL }}
       LOGIN_URL: ${{ secrets.LOGIN_URL }}
       USER_AGENT: ${{ secrets.USER_AGENT }}
@@ -20,18 +22,11 @@ jobs:
       REPORT_PORTAL_ENDPOINT: ${{ secrets.REPORT_PORTAL_ENDPOINT }}
       REPORT_PORTAL_LAUNCH: ${{ secrets.REPORT_PORTAL_LAUNCH }}
       REPORT_PORTAL_PROJECT: ${{ secrets.REPORT_PORTAL_PROJECT }}
-      
-
-    strategy:
-      matrix:
-        node-version: [16.x]
-
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version: 18
           cache: 'npm'
       
       - run: npm install
