@@ -1,4 +1,4 @@
-import { test, expect } from '../fixtures/fixtures';
+import { test, expect } from '../../fixtures/fixtures';
 
 const USER_NAME = process.env.TMDB_USERNAME;
 
