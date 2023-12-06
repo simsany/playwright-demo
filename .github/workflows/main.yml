@@ -16,6 +16,10 @@ jobs:
       USER_AGENT: ${{ secrets.USER_AGENT }}
       TMDB_USERNAME: ${{ secrets.TMDB_USERNAME }}
       TMDB_PASSWORD: ${{ secrets.TMDB_PASSWORD }}
+      REPORT_PORTAL_API_KEY: ${{ secrets.REPORT_PORTAL_API_KEY }}
+      REPORT_PORTAL_ENDPOINT: ${{ secrets.REPORT_PORTAL_ENDPOINT }}
+      REPORT_PORTAL_LAUNCH: ${{ secrets.REPORT_PORTAL_LAUNCH }}
+      REPORT_PORTAL_PROJECT: ${{ secrets.REPORT_PORTAL_PROJECT }}
       
 
     strategy:

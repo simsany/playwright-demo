@@ -2,13 +2,13 @@ import { defineConfig, devices } from '@playwright/test';
 import * as dotenv from 'dotenv';
 
 dotenv.config();
-// const { REPORT_PORTAL_API_KEY,REPORT_PORTAL_ENDPOINT,REPORT_PORTAL_PROJECT,REPORT_PORTAL_LAUNCH } = process.env;
-// const RPconfig = {
-//   apiKey:REPORT_PORTAL_API_KEY,
-//   endpoint: REPORT_PORTAL_ENDPOINT,
-//   project: REPORT_PORTAL_PROJECT,
-//   launch: REPORT_PORTAL_LAUNCH
-// };
+ const { REPORT_PORTAL_API_KEY,REPORT_PORTAL_ENDPOINT,REPORT_PORTAL_PROJECT,REPORT_PORTAL_LAUNCH } = process.env;
+ const RPconfig = {
+  apiKey:REPORT_PORTAL_API_KEY,
+  endpoint: REPORT_PORTAL_ENDPOINT,
+  project: REPORT_PORTAL_PROJECT,
+  launch: REPORT_PORTAL_LAUNCH
+ };
 
 /**
  * See https://playwright.dev/docs/test-configuration.
@@ -26,7 +26,7 @@ export default defineConfig({
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? '75%' : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: [['html'] /*['@reportportal/agent-js-playwright', RPconfig]*/],
+  reporter: [['html'] ,['@reportportal/agent-js-playwright', RPconfig]],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
