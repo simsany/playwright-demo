@@ -12,7 +12,7 @@ test.describe('TMDB login test', () => {
     });
 
     await test.step('the logged in user\'s profile link should be visible', async () => {
-      return expect(homePage.profileLink).toBeVisible({ timeout: 20000 });
+      return expect(homePage.profileLink).toBeVisible();
     });
 
     await test.step('should have correct welcome message', async () => {
